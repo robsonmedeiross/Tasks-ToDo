@@ -16,14 +16,43 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    if(!newTaskTitle)return; 
+    const data = {
+      id: (Math.random() * 100),
+      title: newTaskTitle,
+      isComplete: false
+    }
+    //setTasks(old => [...old, data])
+    setTasks([...tasks, data])
   }
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    // const indexTask = tasks.findIndex(task => task.id === id)
+    // if(indexTask !== -1 ){
+    //   tasks[indexTask].isComplete = true;
+    // } 
+    // else{ 
+    //   alert("Task não encontrada!")
+    // }
+
+    const newTask = tasks.map(task => task.id === id ? {...task, isComplete: !task.isComplete} : task);
+    setTasks(newTask);
   }
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
+
+    // const removeTask = tasks.filter(task => task.id !== id);
+    // setTasks(removeTask);
+
+    const indexTask = tasks.findIndex(task => task.id === id);
+    if(indexTask !== -1){
+      tasks.splice(indexTask, 1);
+      setTasks([...tasks]);
+    }else{
+      alert("Task não encontrada!");
+    }
   }
 
   return (
@@ -60,7 +89,6 @@ export function TaskList() {
                 </label>
                 <p>{task.title}</p>
               </div>
-
               <button type="button" data-testid="remove-task-button" onClick={() => handleRemoveTask(task.id)}>
                 <FiTrash size={16}/>
               </button>
