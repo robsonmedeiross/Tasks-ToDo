@@ -8,23 +8,6 @@ interface Task {
   title: string;
   isComplete: boolean;
 }
-const finalSpaceCharacters = [
-  {
-    id: 'gary',
-    name: 'Gary Goodspeed',
-    thumb: '/images/gary.png'
-  },
-  {
-    id: 'cato',
-    name: 'Little Cato',
-    thumb: '/images/cato.png'
-  },
-  {
-    id: 'kvn',
-    name: 'KVN',
-    thumb: '/images/kvn.png'
-  },
-]
 
 export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
