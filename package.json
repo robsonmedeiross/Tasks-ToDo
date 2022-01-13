@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "react": "^17.0.1",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0"
   },
@@ -22,6 +23,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-dom": "^17.0.0",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
